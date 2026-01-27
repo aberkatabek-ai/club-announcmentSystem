@@ -1,0 +1,35 @@
+[
+  {
+    "id": "c82748a07965f19bcdb2cc66",
+    "title": "java get2gether",
+    "club": "Yazilim Kulubu",
+    "body": "Herkesi C binasına bekliyoruz",
+    "tags": [
+      "get2gether"
+    ],
+    "createdAt": "2026-01-17T20:43:25.670Z",
+    "createdBy": "yazilim"
+  },
+  {
+    "id": "fb020506e6ae819bcdd2922c",
+    "title": "Büyük Finans Buluşması",
+    "club": "Ekonomi Kulubu",
+    "body": "At 5 am we are getting together for the biggest presantation ever in bilkent history",
+    "tags": [
+      "Presantation"
+    ],
+    "createdAt": "2026-01-17T21:18:07.916Z",
+    "createdBy": "ekonomiclub"
+  },
+  {
+    "id": "a657339e329c452b8dbdc68a4c40e6e3",
+    "title": "Tiyatro Buluşması",
+    "club": "Tiyatro Kulubu",
+    "body": "Senior öğrencilerimizin tiyatrosunu izlemek için hepinizi bekliyoruz",
+    "tags": [
+      "#Oyun"
+    ],
+    "createdAt": "2026-01-23T19:17:01.110Z",
+    "createdBy": "tiyatro"
+  }
+]

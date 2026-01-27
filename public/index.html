@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BilkBoard</title>
+  <link rel="stylesheet" href="./styles.css?v=3" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <h1>BilkBoard</h1>
+      <p>Shared bulletin for all school clubs</p>
+    </div>
+    <div class="actions">
+      <button id="authToggle" class="btn" type="button">Representative Login</button>
+    </div>
+  </header>
+
+  <section id="authModal" class="modal hidden">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h2>Representative Login</h2>
+        <button id="authClose" class="btn ghost" type="button">Close</button>
+      </div>
+      <div class="auth-tabs">
+        <button id="authTabLogin" class="btn ghost" type="button">Login</button>
+        <button id="authTabLogout" class="btn ghost" type="button">Logout</button>
+      </div>
+      <div id="loginForm" class="auth-row">
+        <label>
+          Username
+          <input id="loginUser" type="text" placeholder="username" />
+        </label>
+        <label>
+          Password
+          <input id="loginPass" type="password" placeholder="password" />
+        </label>
+      </div>
+      <div id="loginInfo" class="auth-row hidden">
+        <span id="whoami"></span>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <section id="newAnnouncement" class="card new hidden">
+      <h2>New Announcement</h2>
+
+      <div class="form-grid">
+        <label>
+          Title
+          <input id="title" type="text" placeholder="Announcement title" maxlength="80" />
+        </label>
+
+        <div id="clubBox" class="club-box hidden">
+          <span class="club-label">Club</span>
+          <div class="club-row">
+            <span id="clubDisplay" class="club-pill"></span>
+          </div>
+        </div>
+      </div>
+
+      <label>
+        Tags (comma-separated)
+        <input id="tags" type="text" placeholder="event, registration, workshop" maxlength="200" />
+      </label>
+
+      <label>
+        Event Date & Time
+        <input id="eventDate" type="datetime-local" />
+      </label>
+
+      <label>
+        Body
+        <textarea id="body" rows="5" placeholder="Announcement text..." maxlength="1000"></textarea>
+      </label>
+
+      <div class="file-field">
+        <span class="file-label">Media (jpg, png, webp, mp4, webm)</span>
+        <div class="file-row">
+          <input id="media" class="file-input" type="file" accept="image/png,image/jpeg,image/webp,video/mp4,video/webm" />
+          <button id="mediaBtn" class="btn ghost" type="button">Choose file</button>
+          <span id="mediaName" class="file-name">No file chosen</span>
+        </div>
+      </div>
+
+      <button id="share" class="btn" disabled>Publish</button>
+    </section>
+
+    <section class="filters">
+      <input id="q" placeholder="Search: club, title, tags..." />
+      <select id="club">
+        <option value="">All clubs</option>
+      </select>
+    </section>
+
+    <section id="list" class="list"></section>
+
+    <section id="empty" class="empty hidden">
+      <p>No announcements yet.</p>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

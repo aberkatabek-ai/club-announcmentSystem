@@ -1,0 +1,48 @@
+[
+  {
+    "username": "robotik",
+    "club": "Robotik ve Kodlama Kulubu",
+    "token": "",
+    "tokenExpiresAt": 0,
+    "passwordSalt": "8f03147117b71fafefc95462cac8a5f2",
+    "passwordHash": "273fff103cafa2cefc79c0f649eafc311bbab79928ea106bde35bdf6b12a97ebb8e98a563875393018616ed41aa68db6baf4b9c2156a0c99c0490836d16e742c"
+  },
+  {
+    "username": "tiyatro",
+    "club": "Tiyatro Kulubu",
+    "token": "",
+    "tokenExpiresAt": 0,
+    "passwordSalt": "8f123e1a2a520732420f53b33c7042f7",
+    "passwordHash": "8ffc07f3904403c4e145a8639eb5aa28bd9f1efc490cfd9440291a9cbce6817ed53cda7e489352b30f100462de44afcff290f84899cd3ec79261264a221a1f6f"
+  },
+  {
+    "username": "muzik",
+    "club": "Muzik Kulubu",
+    "password": "muzik2026",
+    "token": "",
+    "tokenExpiresAt": 0
+  },
+  {
+    "username": "bilim",
+    "club": "Bilim ve Arastirma Kulubu",
+    "password": "bilim2026",
+    "token": "",
+    "tokenExpiresAt": 0
+  },
+  {
+    "username": "spor",
+    "club": "Spor Kulubu",
+    "token": "",
+    "tokenExpiresAt": 0,
+    "passwordSalt": "585f0dbc4722e0c3a8b7670617418ea9",
+    "passwordHash": "5529f7bfacdddcf8e518b4db94c8436e6ecf0aebb1475b997da9b0ac79a523dc213d224b2364c0f2c2fe8dc1a7d9c73a883b4e68e3a6b24885bd392e82d2c35c"
+  },
+  {
+    "username": "fotograf",
+    "club": "Fotografcilik Kulubu",
+    "token": "d7d7066f97ef426e804343fa97157fe63b5c9dd69feb45cf85e295311d32a275",
+    "tokenExpiresAt": 1769808661493,
+    "passwordSalt": "030a62cd2775d2c367fcafa7e6e1f6b6",
+    "passwordHash": "4fcb5b38e54aa8f6a864aa1194abadb35b90c5371a24b32742899d17fa933d88c2e5be39e497546379d04793664cbacc5ba12f3e7ae9f903aa3a16c22ba293f3"
+  }
+]
