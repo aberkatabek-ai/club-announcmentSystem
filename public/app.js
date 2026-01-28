@@ -20,6 +20,7 @@ const loginInfoEl = document.getElementById("loginInfo");
 const whoamiEl = document.getElementById("whoami");
 const loginUserEl = document.getElementById("loginUser");
 const loginPassEl = document.getElementById("loginPass");
+const loginBtnEl = document.getElementById("loginBtn");
 const authTabLogin = document.getElementById("authTabLogin");
 const authTabLogout = document.getElementById("authTabLogout");
 const authToggleBtn = document.getElementById("authToggle");
@@ -134,6 +135,7 @@ function handleLoginEnter(e) {
 
 loginUserEl.addEventListener("keydown", handleLoginEnter);
 loginPassEl.addEventListener("keydown", handleLoginEnter);
+if (loginBtnEl) loginBtnEl.addEventListener("click", doLogin);
 
 async function doLogout() {
   await ensureCsrf();
@@ -152,7 +154,6 @@ if (authTabLogin) {
       return;
     }
     showLoginForm();
-    await doLogin();
   });
 }
 
