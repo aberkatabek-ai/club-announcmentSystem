@@ -521,14 +521,37 @@ app.post("/api/login", async (req, res) => {
     user = normalized;
   } else {
     user = await getUserByUsername(username);
-    if (!user) {
-      const users = readJson(USERS_PATH, []);
-      const localUser = users.find((u) => u.username === username);
-      if (localUser) {
-        ensurePasswordHash(localUser);
-        user = await upsertUserFromLocal(localUser);
+    const users = readJson(USERS_PATH, []);
+    const localUser = users.find((u) => u.username === username);
+
+    if (!user && localUser) {
+      const migrated = ensurePasswordHash(localUser);
+      const normalized = normalizeUser(localUser);
+      const ok = normalized.passwordHash
+        ? verifyPassword(password, normalized)
+        : localUser.password === password;
+      if (!ok) {
+        if (migrated) writeJson(USERS_PATH, users);
+        return res.status(401).json({ error: "Wrong credentials" });
       }
+      if (migrated) writeJson(USERS_PATH, users);
+      user = await upsertUserFromLocal(localUser);
     }
+
+    if (user && (!user.passwordHash || !user.passwordSalt) && localUser) {
+      const migrated = ensurePasswordHash(localUser);
+      const normalized = normalizeUser(localUser);
+      const ok = normalized.passwordHash
+        ? verifyPassword(password, normalized)
+        : localUser.password === password;
+      if (!ok) {
+        if (migrated) writeJson(USERS_PATH, users);
+        return res.status(401).json({ error: "Wrong credentials" });
+      }
+      if (migrated) writeJson(USERS_PATH, users);
+      user = await upsertUserFromLocal(localUser);
+    }
+
     if (!user) return res.status(401).json({ error: "Wrong credentials" });
     const ok = verifyPassword(password, user);
     if (!ok) return res.status(401).json({ error: "Wrong credentials" });
