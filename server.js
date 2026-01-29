@@ -238,6 +238,11 @@ function isLoginRateLimited(ip) {
   return entry.count > LOGIN_MAX_ATTEMPTS;
 }
 
+function clearLoginAttempts(ip) {
+  if (!ip) return;
+  loginAttempts.delete(ip);
+}
+
 function csrfProtection(req, res, next) {
   const isApi = req.path.startsWith("/api/");
   const isSafe = req.method === "GET" || req.method === "HEAD";
@@ -566,6 +571,7 @@ app.post("/api/login", async (req, res) => {
     return res.status(500).json({ error: "Could not create session" });
   }
 
+  clearLoginAttempts(req.ip);
   res.cookie("auth", token, {
     httpOnly: true,
     sameSite: "lax",
